@@ -3,6 +3,7 @@ id: policy-output-contracts
 type: policy
 status: promoted
 version: 1.0.0
+schema_version: 1.0.0
 ---
 
 # Output Contracts

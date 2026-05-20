@@ -13,6 +13,10 @@ status: draft
 # Only 'promoted' units are active policy. See ADR-003 for transition criteria.
 
 version: 1.0.0
+
+schema_version: 1.0.0
+# Schema version this unit was authored against. See ADR-005 and build/schema/VERSION.
+# Adapters use this to verify compatibility before reading the unit.
 # Semver string. Increment on any breaking change to the unit's behavior.
 
 # Optional fields — include only when relevant.

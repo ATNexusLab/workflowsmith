@@ -3,6 +3,7 @@ id: policy-routing
 type: policy
 status: promoted
 version: 1.0.0
+schema_version: 1.0.0
 ---
 
 # Routing Policy

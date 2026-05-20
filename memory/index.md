@@ -3,6 +3,7 @@ id: memory-index-main
 type: memory-index
 status: promoted
 version: 1.0.0
+schema_version: 1.0.0
 ---
 
 # Memory Index

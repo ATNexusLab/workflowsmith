@@ -20,6 +20,8 @@ docs/decisions/ADR-001-canonical-schema.md
 docs/decisions/ADR-002-build-system-model.md
 docs/decisions/ADR-003-content-lifecycle.md
 docs/decisions/ADR-004-legacy-treatment.md
+docs/decisions/ADR-005-versioning-strategy.md
+CHANGELOG.md
 core/routing-policy.md
 core/output-contracts.md
 memory/index.md
@@ -29,6 +31,7 @@ checklists/final-answer.md
 scripts/validate.sh
 build/README.md
 build/schema/README.md
+build/schema/VERSION
 build/schema/workflow-unit.template.md
 build/adapters/README.md
 agents/README.md

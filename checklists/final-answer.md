@@ -3,6 +3,7 @@ id: checklist-final-answer
 type: checklist
 status: promoted
 version: 1.0.0
+schema_version: 1.0.0
 ---
 
 # Final Answer Checklist

@@ -88,6 +88,7 @@ id: skill-spec-writing
 type: skill
 status: promoted
 version: 1.0.0
+schema_version: 1.0.0
 tags:
   - planning
   - adr
@@ -96,7 +97,7 @@ see-also:
 ---
 ```
 
-Required fields: `id`, `type`, `status`, `version`. Optional fields: `tags`, `replaces`, `see-also`.
+Required fields: `id`, `type`, `status`, `version`, `schema_version`. Optional fields: `tags`, `replaces`, `see-also`.
 
 See [ADR-001](decisions/ADR-001-canonical-schema.md) for the full field specification and allowed values. See `build/schema/workflow-unit.template.md` for the copyable template.
 
@@ -133,6 +134,22 @@ AxiomForge canonical content   (this repository)
 Adding a new harness means adding an adapter — not editing canonical content. Build artifacts are generated on demand and are not stored in this repository.
 
 See [ADR-002](decisions/ADR-002-build-system-model.md) for the full model and constraints.
+
+---
+
+## Versioning
+
+AxiomForge has three versioning dimensions. See [ADR-005](decisions/ADR-005-versioning-strategy.md) for the full rules.
+
+| Dimension | What it versions | Tracked in |
+|---|---|---|
+| **Unit** | A single canonical workflow unit | `version` field in frontmatter |
+| **Schema** | The canonical schema definition (ADR-001) | `build/schema/VERSION` + `schema_version` field in each unit |
+| **Repository** | AxiomForge as a product | Git tags (`vX.Y.Z`) + `CHANGELOG.md` |
+
+**Schema compatibility:** An adapter declares its supported schema version. It must process any unit whose `schema_version` matches the same major version. A schema major bump requires an ADR and signals all adapters must update.
+
+**Release cadence:** Changes are logged under `## [Unreleased]` in `CHANGELOG.md`. At release, the section moves to a dated `## [vX.Y.Z]` entry and a git tag is created.
 
 ---
 

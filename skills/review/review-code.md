@@ -3,6 +3,7 @@ id: skill-review-code
 type: skill
 status: promoted
 version: 1.0.0
+schema_version: 1.0.0
 ---
 
 # Review Code Skill

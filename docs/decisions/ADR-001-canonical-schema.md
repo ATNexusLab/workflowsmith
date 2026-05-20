@@ -21,7 +21,10 @@ A canonical workflow unit is a Markdown file with a YAML frontmatter block that 
 | `id` | string | Unique slug, lowercase kebab-case (e.g., `skill-spec-writing`) |
 | `type` | enum | `agent`, `skill`, `policy`, `checklist`, `memory-index` |
 | `status` | enum | `draft`, `reviewed`, `promoted` |
-| `version` | string | Semver (e.g., `1.0.0`) |
+| `version` | string | Semver (e.g., `1.0.0`) — version of this unit |
+| `schema_version` | string | Semver (e.g., `1.0.0`) — schema version this unit was authored against |
+
+The current schema version is tracked in `build/schema/VERSION`. See ADR-005 for versioning rules and compatibility contracts.
 
 **Optional fields:**
 

@@ -45,6 +45,7 @@ See [`docs/architecture.md`](docs/architecture.md) for the full description of A
 | [ADR-002](docs/decisions/ADR-002-build-system-model.md) | Build System Model — canonical source + adapter per harness + ephemeral build artifact |
 | [ADR-003](docs/decisions/ADR-003-content-lifecycle.md) | Content Lifecycle — draft → reviewed → promoted with explicit transition criteria |
 | [ADR-004](docs/decisions/ADR-004-legacy-treatment.md) | Legacy Treatment — `imports/legacy/` is audit reference only, never active policy |
+| [ADR-005](docs/decisions/ADR-005-versioning-strategy.md) | Versioning Strategy — unit semver, schema versioning, and repository release model |
 
 ## Validation
 

@@ -3,6 +3,7 @@ id: agent-principal
 type: agent
 status: promoted
 version: 1.0.0
+schema_version: 1.0.0
 ---
 
 # Principal Agent

@@ -45,3 +45,4 @@ Use zero-padded three-digit numbers: `ADR-001`, `ADR-002`, and so on. File names
 | [ADR-002](ADR-002-build-system-model.md) | Build System Model | Accepted |
 | [ADR-003](ADR-003-content-lifecycle.md) | Content Lifecycle | Accepted |
 | [ADR-004](ADR-004-legacy-treatment.md) | Legacy Treatment | Accepted |
+| [ADR-005](ADR-005-versioning-strategy.md) | Versioning Strategy | Accepted |
