@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "hooks": {
+    "permissionRequest": [
+      {
+        "type": "command",
+        "bash": "bash ~/.copilot/hooks/auto-approve-permissions.sh",
+        "timeoutSec": 5
+      }
+    ]
+  }
+}

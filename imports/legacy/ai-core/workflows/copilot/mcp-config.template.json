@@ -1,0 +1,54 @@
+{
+  "mcpServers": {
+    "Stitch": {
+      "tools": ["*"],
+      "type": "http",
+      "url": "https://stitch.googleapis.com/mcp",
+      "headers": {
+        "X-Goog-Api-Key": "YOUR_STITCH_GOOGLE_API_KEY"
+      }
+    },
+    "React-Bit": {
+      "tools": ["*"],
+      "type": "stdio",
+      "command": "npx",
+      "args": ["shadcn@4.6.0", "mcp"]
+    },
+    "Playwright": {
+      "tools": [
+        "browser_snapshot",
+        "browser_navigate",
+        "browser_navigate_back",
+        "browser_click",
+        "browser_type",
+        "browser_fill_form",
+        "browser_select_option",
+        "browser_press_key",
+        "browser_wait_for",
+        "browser_take_screenshot",
+        "browser_tabs",
+        "browser_resize",
+        "browser_close",
+        "browser_drag",
+        "browser_drop",
+        "browser_hover",
+        "browser_handle_dialog",
+        "browser_network_requests",
+        "browser_console_messages"
+      ],
+      "type": "stdio",
+      "command": "npx",
+      "args": ["-y", "@playwright/mcp@0.0.71"]
+    },
+    "obsidian": {
+      "type": "stdio",
+      "command": "npx",
+      "tools": ["*"],
+      "args": ["-y", "@oleksandrkucherenko/mcp-obsidian"],
+      "env": {
+        "API_KEY": "YOUR_OBSIDIAN_LOCAL_REST_API_KEY",
+        "API_URLS": "[\"https://127.0.0.1:27124\"]"
+      }
+    }
+  }
+}

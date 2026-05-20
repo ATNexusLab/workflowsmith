@@ -1,0 +1,73 @@
+{
+  "hooksConfig": {
+    "enabled": true,
+    "notifications": true
+  },
+  "hooks": [
+    {
+      "name": "plan-first",
+      "event": "BeforeToolSelection",
+      "command": "${workspacePath}/hooks/plan-first.js"
+    },
+    {
+      "name": "block-git-write",
+      "event": "BeforeTool",
+      "matcher": "run_shell_command",
+      "command": "${workspacePath}/hooks/block-git-write.js"
+    },
+    {
+      "name": "auto-approve-permissions",
+      "event": "BeforeToolSelection",
+      "command": "${workspacePath}/hooks/auto-approve-permissions.js"
+    },
+    {
+      "name": "worktree-cleanup",
+      "event": "SessionEnd",
+      "command": "${workspacePath}/hooks/worktree-cleanup.js"
+    }
+  ],
+  "security": {
+    "auth": {
+      "selectedType": "oauth-personal"
+    }
+  },
+  "mcpServers": {
+    "Stitch": {
+      "httpUrl": "https://stitch.googleapis.com/mcp",
+      "headers": {
+        "X-Goog-Api-Key": "YOUR_GOOGLE_API_KEY"
+      }
+    },
+    "React-Bit": {
+      "command": "npx",
+      "args": [
+        "shadcn@4.6.0",
+        "mcp"
+      ]
+    },
+    "Playwright": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@playwright/mcp@0.0.71"
+      ]
+    },
+    "obsidian-vault": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-filesystem",
+        "/path/to/your/obsidian/vault"
+      ]
+    }
+  },
+  "ide": {
+    "hasSeenNudge": true,
+    "enabled": true
+  },
+  "experimental": {
+    "gemmaModelRouter": {
+      "autoStartServer": true
+    }
+  }
+}

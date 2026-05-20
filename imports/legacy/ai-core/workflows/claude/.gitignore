@@ -1,0 +1,44 @@
+# ──────────────────────────────────────────────
+# Sensitive / machine-specific config (use *.template instead)
+# ──────────────────────────────────────────────
+mcp.json
+settings.json
+
+# Managed externally by Claude CLI (auto-synced, not portable)
+plugins/
+.credentials.json
+.last-cleanup
+
+# ──────────────────────────────────────────────
+# Ephemeral runtime files — never commit these
+# ──────────────────────────────────────────────
+
+# Top-level cache / state files
+history.jsonl
+mcp-needs-auth-cache.json
+stats-cache.json
+
+# Ephemeral directories
+file-history/
+paste-cache/
+shell-snapshots/
+telemetry/
+session-env/
+ide/
+backups/
+cache/
+daemon/
+sessions/
+tasks/
+downloads/
+plans/
+
+# ──────────────────────────────────────────────
+# projects/ — ignore session data, keep memory/
+# ──────────────────────────────────────────────
+
+# Session .jsonl logs
+projects/**/*.jsonl
+
+# UUID session dirs (xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx)
+projects/*/[0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f]-[0-9a-f]*/

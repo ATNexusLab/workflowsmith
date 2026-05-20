@@ -1,0 +1,56 @@
+# === Secrets & Credentials (ALWAYS exclude) ===
+google_accounts.json
+oauth_creds.json
+
+# === Machine-Specific State ===
+installation_id
+state.json
+todos.db
+acknowledgments/
+
+# === Runtime Data & Caches ===
+antigravity-browser-profile/
+antigravity/
+history/
+tmp/
+.project_root
+
+# === JSON: block all root-level except explicit allowlist ===
+*.json
+!agents/*.json
+!skills/**/*.json
+!settings.example.json
+
+# === Antigravity CLI: keep portable assets, ignore live state ===
+!antigravity-cli/
+!antigravity-cli/**
+antigravity-cli/installation_id
+antigravity-cli/last_check.timestamp
+antigravity-cli/settings.json
+antigravity-cli/keybindings.json
+antigravity-cli/cache/
+antigravity-cli/log/
+antigravity-cli/implicit/
+antigravity-cli/updater/
+antigravity-cli/knowledge/*.lock
+
+# === System Artifacts ===
+.DS_Store
+Thumbs.db
+node_modules/
+dist/
+build/
+*.log
+*.pb
+
+# === Directories (root-anchored) ===
+/tmp
+/history
+/bin
+
+# === Always keep portable config ===
+!GEMINI.md
+!agents/*.md
+!skills/**/*.md
+!skills/**/patterns/*.md
+!skills/**/references/*.md
