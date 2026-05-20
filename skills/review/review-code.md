@@ -1,3 +1,10 @@
+---
+id: skill-review-code
+type: skill
+status: promoted
+version: 1.0.0
+---
+
 # Review Code Skill
 
 Use this skill for code review and repository review tasks.

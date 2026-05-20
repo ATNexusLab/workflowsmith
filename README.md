@@ -11,16 +11,22 @@ The repository is intentionally small. It exists to make AI operating rules, age
 - Separate raw imported material from promoted repository standards.
 - Avoid inventing final workflows before existing workflows are reviewed.
 
+## Architecture
+
+See [`docs/architecture.md`](docs/architecture.md) for the full description of AxiomForge's four-layer model (Schema, Content, Build, Validation), the directory contract, the content lifecycle, and the build system design.
+
 ## Repository Map
 
-- `docs/` explains the source-of-truth model.
-- `core/` stores baseline routing and output policy.
-- `memory/` indexes versioned memory sources.
-- `agents/` stores agent definitions.
-- `skills/` stores task-specific skills.
-- `checklists/` stores repeatable review checklists.
-- `imports/` stores raw imported workflow material before promotion.
-- `scripts/` stores lightweight repository checks.
+- `docs/` — explanatory documentation, ADRs, and the architecture reference.
+- `docs/decisions/` — Architecture Decision Records (ADRs) for every key architectural choice.
+- `core/` — baseline routing and output policy.
+- `agents/` — agent profile definitions.
+- `skills/` — task-specific skill instructions.
+- `memory/` — versioned memory indexes and references.
+- `checklists/` — reusable completion and review checklists.
+- `build/` — canonical schema templates and harness adapter interface.
+- `imports/` — raw imported workflow material (audit reference only, never active policy).
+- `scripts/` — lightweight repository validation checks.
 
 ## Operating Principles
 
@@ -29,6 +35,16 @@ The repository is intentionally small. It exists to make AI operating rules, age
 3. Prefer one clear rule over several overlapping rules.
 4. Keep automation small enough to audit quickly.
 5. Version every promoted workflow change.
+6. Document every architectural decision as an ADR in `docs/decisions/`.
+
+## Decision Records
+
+| ADR | Title |
+|---|---|
+| [ADR-001](docs/decisions/ADR-001-canonical-schema.md) | Canonical Schema Definition — required frontmatter fields for every workflow unit |
+| [ADR-002](docs/decisions/ADR-002-build-system-model.md) | Build System Model — canonical source + adapter per harness + ephemeral build artifact |
+| [ADR-003](docs/decisions/ADR-003-content-lifecycle.md) | Content Lifecycle — draft → reviewed → promoted with explicit transition criteria |
+| [ADR-004](docs/decisions/ADR-004-legacy-treatment.md) | Legacy Treatment — `imports/legacy/` is audit reference only, never active policy |
 
 ## Validation
 
@@ -38,7 +54,7 @@ Run:
 sh scripts/validate.sh
 ```
 
-The validator checks that the required foundation files and raw legacy import markers exist and are non-empty.
+The validator checks that the required foundation files and raw legacy import markers exist and are non-empty. It can be run from any directory.
 
 ## Imported Legacy Snapshot
 

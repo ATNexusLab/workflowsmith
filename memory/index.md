@@ -1,3 +1,10 @@
+---
+id: memory-index-main
+type: memory-index
+status: promoted
+version: 1.0.0
+---
+
 # Memory Index
 
 This file indexes memory sources for the AI workflow repository.

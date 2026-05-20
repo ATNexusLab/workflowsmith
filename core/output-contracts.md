@@ -1,3 +1,10 @@
+---
+id: policy-output-contracts
+type: policy
+status: promoted
+version: 1.0.0
+---
+
 # Output Contracts
 
 These contracts define the baseline expectations for AI responses that use this repository.
