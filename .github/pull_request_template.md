@@ -1,6 +1,6 @@
 ## Summary
 
-- 
+-
 
 ## Linked Issue
 
@@ -17,4 +17,4 @@ Closes #
 
 ## Follow-up
 
-- 
+-
