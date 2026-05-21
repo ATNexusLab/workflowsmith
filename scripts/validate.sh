@@ -13,7 +13,6 @@ while IFS= read -r file; do
   fi
 done <<'REQUIRED_FILES'
 README.md
-AGENTS.md
 CHANGELOG.md
 workflowsmith.yml
 docs/architecture.md
