@@ -1,48 +1,82 @@
-# Repository Guidelines
+# Codex Working Guide
 
-## Project Structure & Module Organization
+This file is local tooling guidance for Codex while developing this repository.
+It is not part of the WorkflowSmith product, foundation, canonical workflow,
+compiler contract, or Codex distribution.
 
-AxiomForge is a plain-text source-of-truth repository for AI workflow instructions. Active, promoted guidance lives in the top-level domain directories:
+If the project later uses another development assistant, this file may be
+removed without changing the product.
 
-- `core/`: baseline routing policy and output contracts.
-- `agents/`: agent definitions, currently including `agents/principal.md`.
-- `skills/`: task-specific skill instructions, such as `skills/review/review-code.md`.
-- `memory/`: versioned memory indexes and references.
-- `checklists/`: reusable completion and review checklists.
-- `docs/`: explanatory documentation for repository concepts.
-- `imports/`: raw or extracted legacy workflow material. Treat `imports/legacy/` as inactive reference material until selected content is reviewed and promoted.
-- `scripts/`: lightweight repository checks.
+## Product Boundaries
 
-## Build, Test, and Development Commands
+WorkflowSmith is an enterprise-grade AI workflow system.
 
-This repository has no package build step. Use the validation script before submitting changes:
+The product source of truth lives in:
+
+- `workflow/` for canonical workflow source.
+- `compiler/` for compiler contracts.
+- `dist/` for harness distributions.
+- `docs/` for architecture, process, governance, roadmap, and decisions.
+- `workflowsmith.yml` for the root product manifest.
+
+Codex is the first planned harness target, but Codex does not define the
+product. Do not generalize Codex-specific behavior into the canonical workflow
+unless the rule is genuinely harness-agnostic and accepted through the project
+process.
+
+## Operating Rule
+
+Plan before execution.
+
+Before editing files, establish:
+
+- goal
+- scope
+- affected files or areas
+- acceptance criteria
+- validation command
+- open decisions or assumptions
+
+If a material decision is not described in the project documents, ask before
+choosing. The intended standard is a defined spec before implementation, so the
+work can be done once with minimal rework.
+
+## Development Process
+
+Follow `docs/development-process.md`.
+
+Meaningful work should be tied to:
+
+- GitHub issue
+- branch
+- pull request
+- validation result
+- merge
+
+Use an ADR when a change affects architecture, governance, lifecycle, schema,
+compiler behavior, or harness strategy.
+
+## Editing Guidance
+
+Keep changes small and focused.
+
+Edit only what is necessary for the current task. Preserve the separation
+between product content and assistant tooling.
+
+Do not add old foundation structures or legacy workflow directories. Do not
+create active product content in `workflow/source/` unless the task is explicitly
+about the canonical workflow milestone.
+
+Treat external material and assistant skills as references or tools. They are
+not product authority. Product decisions must be represented in the project
+documents and, when required, ADRs.
+
+## Validation
+
+Run before closing work:
 
 ```sh
 sh scripts/validate.sh
 ```
 
-The script verifies that required foundation files and legacy import markers exist and are non-empty. For quick navigation, use `rg --files` to list tracked content and `rg "term" core agents skills docs` to search promoted policy areas.
-
-## Coding Style & Naming Conventions
-
-Most source files are Markdown. Use ATX headings (`#`, `##`), concise paragraphs, and direct instructional language. Prefer fenced code blocks with language tags for commands, for example:
-
-```sh
-sh scripts/validate.sh
-```
-
-Name Markdown files with lowercase kebab-case, as in `routing-policy.md` or `final-answer.md`. Shell scripts should be POSIX-compatible where practical; `scripts/validate.sh` uses `#!/bin/sh`, `set -eu`, and simple loops.
-
-## Testing Guidelines
-
-There is no dedicated test framework or coverage target. Validation is currently structural: run `sh scripts/validate.sh` after edits to promoted files or import markers. When adding new scripts, keep checks deterministic, fast, and readable enough to audit in one pass.
-
-## Commit & Pull Request Guidelines
-
-The current history is small and includes both an initial commit and a Conventional Commit-style message (`feat: ...`). Prefer concise, present-tense commit messages with prefixes such as `docs:`, `feat:`, `fix:`, or `chore:` when useful.
-
-Pull requests should explain what changed, why it was promoted or imported, and which files are authoritative versus reference-only. Include the validation result, link related issues when available, and call out any policy behavior changes that affect agents, skills, routing, memory, or final-answer requirements.
-
-## Agent-Specific Instructions
-
-Preserve the repository principle: import first, normalize second, promote last. Do not treat raw legacy content as active policy unless it has been intentionally moved into `core/`, `agents/`, `skills/`, `memory/`, or `checklists/`.
+If validation cannot be run, report why and state the remaining risk.

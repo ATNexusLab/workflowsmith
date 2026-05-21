@@ -1,0 +1,38 @@
+name: RFC
+description: Propose or explore a product direction before implementation.
+title: "RFC: "
+labels:
+  - type:rfc
+  - status:needs-decision
+  - target:0.0.0
+projects:
+  - ATNexusLab/11
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: What decision or product problem needs to be resolved?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed Direction
+      description: What direction should WorkflowSmith take?
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives Considered
+      description: What other approaches were considered?
+    validations:
+      required: false
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance Criteria
+      description: What must be true for this RFC to close?
+    validations:
+      required: true

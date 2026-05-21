@@ -1,0 +1,45 @@
+name: Workflow Change
+description: Change canonical workflow, compiler contracts, distributions, or validation.
+title: "Change: "
+labels:
+  - type:feature
+  - target:0.0.0
+projects:
+  - ATNexusLab/11
+body:
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - Architecture
+        - Workflow
+        - Compiler
+        - Codex Harness
+        - Governance
+        - Validation
+        - Docs
+    validations:
+      required: true
+  - type: textarea
+    id: change
+    attributes:
+      label: Change
+      description: What should change?
+    validations:
+      required: true
+  - type: textarea
+    id: criteria
+    attributes:
+      label: Acceptance Criteria
+      description: What must be true when the work is complete?
+    validations:
+      required: true
+  - type: textarea
+    id: validation
+    attributes:
+      label: Validation
+      description: What validation should run?
+      value: "sh scripts/validate.sh"
+    validations:
+      required: true

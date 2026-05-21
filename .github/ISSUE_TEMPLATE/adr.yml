@@ -1,0 +1,32 @@
+name: ADR
+description: Record an architectural, governance, lifecycle, compiler, or harness decision.
+title: "ADR: "
+labels:
+  - type:adr
+  - area:architecture
+  - status:needs-decision
+  - target:0.0.0
+projects:
+  - ATNexusLab/11
+body:
+  - type: textarea
+    id: context
+    attributes:
+      label: Context
+      description: What forces or constraints make this decision necessary?
+    validations:
+      required: true
+  - type: textarea
+    id: decision
+    attributes:
+      label: Decision
+      description: What decision should be recorded?
+    validations:
+      required: true
+  - type: textarea
+    id: consequences
+    attributes:
+      label: Consequences
+      description: What changes once this decision is accepted?
+    validations:
+      required: true

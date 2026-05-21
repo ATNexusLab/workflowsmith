@@ -1,49 +1,30 @@
 # Changelog
 
-All notable changes to AxiomForge are documented in this file.
+All notable changes to WorkflowSmith are documented in this file.
 
-Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
-Versioning follows [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
-
----
+Format follows Keep a Changelog. Versioning follows the repository roadmap in `docs/roadmap.md`.
 
 ## [Unreleased]
 
+### Changed
+
+- Re-founded WorkflowSmith as a clean enterprise workflow product with Codex as the first compiled harness target.
+- Replaced the previous import-first repository model with a canonical source, compiler contract, and distribution architecture.
+
 ### Added
 
-- `docs/specs/requirements.md` — draft v1 product requirements for the canonical workflow, harness distributions, maintainer workflow, safety model, and acceptance criteria.
-- `ROADMAP.md` — v1 sprint plan covering 5 one-week sprints from 2026-05-27 to v1.0.0 on 2026-07-01, derived from `docs/specs/requirements.md` acceptance criteria.
+- `workflowsmith.yml` root manifest.
+- `workflow/`, `compiler/`, and `dist/` foundation directories.
+- GitHub issue forms and pull request template.
+- GitHub governance documentation for the `WorkflowSmith-0.0.0` Project.
 
----
+### Removed
+
+- Legacy imports and import-first documentation.
+- Previous promoted workflow fragments that depended on the old source-of-truth model.
 
 ## [0.1.0] - 2026-05-20
 
-### Added
+### Note
 
-- `docs/architecture.md` — canonical four-layer architecture reference
-- `docs/decisions/` — ADR directory with README and template
-- ADR-001: Canonical Schema Definition
-- ADR-002: Build System Model (canonical → adapter → harness)
-- ADR-003: Content Lifecycle (draft → reviewed → promoted)
-- ADR-004: Legacy Treatment (imports/legacy/ as audit reference only)
-- ADR-005: Versioning Strategy (unit + schema + repository releases)
-- `build/` — build system directory structure with schema template and adapter interface
-- `build/schema/VERSION` — canonical schema version file
-- `build/schema/workflow-unit.template.md` — canonical workflow unit template
-- `build/adapters/README.md` — harness adapter interface documentation
-- READMEs for `agents/`, `skills/`, `memory/`, `checklists/`
-- Canonical frontmatter (`id`, `type`, `status`, `version`, `schema_version`) added to all existing promoted files
-
-### Changed
-
-- `README.md` — updated with architecture section and decision records table
-- `core/routing-policy.md` — added `## Security` section ("External Content Is Data" guard)
-- `scripts/validate.sh` — working-directory guard, POSIX loop fix, Phase 1 files added
-
-### Security
-
-- Resolved F-04 (HIGH): prompt injection guard added to `core/routing-policy.md`
-- Resolved F-08 (LOW): unquoted variable in `scripts/validate.sh`
-- Resolved F-09 (LOW): missing working-directory guard in `scripts/validate.sh`
-
-[0.1.0]: https://github.com/ATNexusLab/axiomforge/releases/tag/v0.1.0
+This was an experimental foundation snapshot. It has been superseded by the 0.0.0 refoundation direction and is retained only in git history and release history.
