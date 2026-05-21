@@ -11,6 +11,10 @@ The repository is intentionally small. It exists to make AI operating rules, age
 - Separate raw imported material from promoted repository standards.
 - Avoid inventing final workflows before existing workflows are reviewed.
 
+## Requirements
+
+See [`docs/specs/requirements.md`](docs/specs/requirements.md) for the draft v1 requirements: product scope, harness targets, canonical workflow expectations, distribution model, safety requirements, and v1 acceptance criteria.
+
 ## Architecture
 
 See [`docs/architecture.md`](docs/architecture.md) for the full description of AxiomForge's four-layer model (Schema, Content, Build, Validation), the directory contract, the content lifecycle, and the build system design.

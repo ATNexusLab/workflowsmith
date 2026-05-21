@@ -9,6 +9,11 @@ Versioning follows [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Added
+
+- `docs/specs/requirements.md` — draft v1 product requirements for the canonical workflow, harness distributions, maintainer workflow, safety model, and acceptance criteria.
+- `ROADMAP.md` — v1 sprint plan covering 5 one-week sprints from 2026-05-27 to v1.0.0 on 2026-07-01, derived from `docs/specs/requirements.md` acceptance criteria.
+
 ---
 
 ## [0.1.0] - 2026-05-20
