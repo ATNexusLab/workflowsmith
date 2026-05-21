@@ -13,37 +13,32 @@ while IFS= read -r file; do
   fi
 done <<'REQUIRED_FILES'
 README.md
-docs/ai-core-source-of-truth.md
-docs/architecture.md
-docs/decisions/README.md
-docs/decisions/ADR-001-canonical-schema.md
-docs/decisions/ADR-002-build-system-model.md
-docs/decisions/ADR-003-content-lifecycle.md
-docs/decisions/ADR-004-legacy-treatment.md
-docs/decisions/ADR-005-versioning-strategy.md
+AGENTS.md
 CHANGELOG.md
-core/routing-policy.md
-core/output-contracts.md
-memory/index.md
-agents/principal.md
-skills/review/review-code.md
-checklists/final-answer.md
+workflowsmith.yml
+docs/architecture.md
+docs/development-process.md
+docs/roadmap.md
+docs/governance/github.md
+docs/decisions/README.md
+docs/decisions/adr-0001-refoundation.md
+docs/decisions/adr-0002-source-compiler-distribution.md
+docs/decisions/adr-0003-github-governance.md
+workflow/README.md
+workflow/source/README.md
+workflow/schema/workflow-unit.md
+compiler/README.md
+compiler/contracts/harness-target.md
+dist/README.md
+dist/codex/README.md
+.github/ISSUE_TEMPLATE/config.yml
+.github/ISSUE_TEMPLATE/rfc.yml
+.github/ISSUE_TEMPLATE/adr.yml
+.github/ISSUE_TEMPLATE/workflow-change.yml
+.github/ISSUE_TEMPLATE/bug.yml
+.github/pull_request_template.md
 scripts/validate.sh
-build/README.md
-build/schema/README.md
-build/schema/VERSION
-build/schema/workflow-unit.template.md
-build/adapters/README.md
-agents/README.md
-skills/README.md
-memory/README.md
-checklists/README.md
-imports/README.md
-imports/legacy/ai-core/MANIFEST.md
-imports/legacy/ai-core/workflows/claude/CLAUDE.md
-imports/legacy/ai-core/workflows/copilot/copilot-instructions.md
-imports/legacy/ai-core/workflows/copilot/.github/copilot-instructions.md
-imports/legacy/ai-core/workflows/antigravity-cli/GEMINI.md
+scripts/setup-github-governance.sh
 REQUIRED_FILES
 
 while IFS= read -r dir; do
@@ -53,13 +48,58 @@ while IFS= read -r dir; do
     missing=1
   fi
 done <<'REQUIRED_DIRS'
-imports/legacy/ai-core/workflows/claude
-imports/legacy/ai-core/workflows/copilot
-imports/legacy/ai-core/workflows/antigravity-cli
+workflow
+workflow/source
+workflow/schema
+compiler
+compiler/contracts
+dist
+dist/codex
+docs
+docs/decisions
+docs/governance
+.github
+.github/ISSUE_TEMPLATE
 REQUIRED_DIRS
+
+while IFS= read -r path; do
+  [ -z "$path" ] && continue
+  if [ -e "$path" ]; then
+    printf 'removed foundation artifact still exists: %s\n' "$path" >&2
+    missing=1
+  fi
+done <<'REMOVED_PATHS'
+imports
+core
+agents
+skills
+memory
+checklists
+build
+ROADMAP.md
+docs/ai-core-source-of-truth.md
+docs/audit-2026-05-20.md
+docs/specs
+REMOVED_PATHS
+
+stale_import_path='imports''/legacy'
+stale_import_first='import ''first'
+stale_normalize_second='normalize ''second'
+stale_promote_last='promote ''last'
+stale_ai_core='ai''-core'
+
+for pattern in "$stale_import_path" "$stale_import_first" "$stale_normalize_second" "$stale_promote_last" "$stale_ai_core"; do
+  if find . \( -path ./.git -o -path ./scripts/validate.sh \) -prune -o -type f -print | xargs grep -n -i -- "$pattern" >/tmp/workflowsmith-validate-grep.txt 2>/dev/null; then
+    printf 'stale foundation concept found: %s\n' "$pattern" >&2
+    cat /tmp/workflowsmith-validate-grep.txt >&2
+    missing=1
+  fi
+done
+
+rm -f /tmp/workflowsmith-validate-grep.txt
 
 if [ "$missing" -ne 0 ]; then
   exit 1
 fi
 
-printf 'WorkflowSmith Phase 1 structure and legacy import markers are present.\n'
+printf 'WorkflowSmith 0.0.0 foundation structure is valid.\n'

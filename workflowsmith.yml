@@ -1,0 +1,31 @@
+product:
+  name: WorkflowSmith
+  version: 0.0.0
+  status: foundation
+  release_target: 1.0.0
+
+architecture:
+  canonical_source: workflow/source
+  workflow_schema: workflow/schema
+  compiler_contracts: compiler/contracts
+  distributions: dist
+
+harness_targets:
+  - id: codex
+    status: first-target
+    distribution: dist/codex
+    validation_stage: planned
+
+governance:
+  github_project: WorkflowSmith-0.0.0
+  required_flow:
+    - issue
+    - branch
+    - pull_request
+    - validation
+    - merge
+  decision_record_directory: docs/decisions
+
+validation:
+  command: sh scripts/validate.sh
+  rejects_legacy_imports: true

@@ -1,183 +1,63 @@
 # WorkflowSmith Architecture
 
-This document describes the canonical architecture of WorkflowSmith — what it is, how it is organized, and why. It is written for a contributor who has no prior context. Every term is defined the first time it appears.
+WorkflowSmith is organized as a canonical workflow product with compiled harness distributions.
 
-For the decisions that produced this architecture, see the [ADRs in `docs/decisions/`](decisions/README.md).
+## Architectural Goal
 
----
+The product goal is a complete, enterprise-grade AI workflow for senior software engineering. The workflow must be precise enough to guide real implementation work, reviews, validation, release decisions, and handoffs.
 
-## Overview
+Codex is the first harness target, but Codex does not define the product. The canonical workflow defines the product.
 
-WorkflowSmith is a **source-of-truth repository for AI excellence workflow instructions**. Its purpose is to keep the rules that govern AI agent behavior — routing policies, agent profiles, skills, checklists, and memory indexes — in a single versioned location, written in plain text, and auditable by any contributor.
+## Layers
 
-The problem it solves: AI workflow instructions tend to exist in multiple places at once (inside tool-specific configuration files, inside personal dotfiles, inside project-local files) and diverge silently. WorkflowSmith is the one place where the canonical form of each instruction lives. A build step translates that canonical form into the format each tool expects.
+### Canonical Source
 
----
+`workflow/` stores the harness-agnostic workflow source. This layer defines behavior, responsibilities, quality bars, lifecycle rules, and reusable operating procedures.
 
-## The Four Layers
+Canonical content must avoid tool-specific assumptions unless the behavior is universal across harnesses.
 
-WorkflowSmith is organized around four layers. Each layer has a single responsibility and a primary directory.
+### Compiler Contracts
 
-### 1. Schema Layer
+`compiler/` stores the contracts that describe how canonical workflow concepts are mapped into harness-native surfaces.
 
-**Responsibility:** Define what a canonical workflow unit must contain.  
-**Primary directory:** `build/schema/`  
-**Does NOT:** store workflow content, implement adapters, or run builds.
+A compiler contract defines:
 
-A **canonical workflow unit** is any piece of workflow instruction that has been authored in the canonical format. The schema defines its required and optional fields. See [ADR-001](decisions/ADR-001-canonical-schema.md) for the full field specification.
+- accepted canonical input
+- target harness surfaces
+- mapping rules
+- unsupported or partial mappings
+- validation expectations
 
-### 2. Content Layer
+### Distributions
 
-**Responsibility:** Store canonical workflow units in their lifecycle state.  
-**Primary directories:** `core/`, `agents/`, `skills/`, `memory/`, `checklists/`  
-**Does NOT:** contain harness-specific files, build artifacts, or raw unreviewed imports.
+`dist/` stores compiled harness outputs. `dist/codex/` is the first target.
 
-Content in this layer is always in one of three states: `draft`, `reviewed`, or `promoted`. Only `promoted` content is active policy. See [ADR-003](decisions/ADR-003-content-lifecycle.md) for transition criteria.
+Distribution files are product artifacts. They should be derived from canonical source and compiler contracts, not hand-authored as independent workflows.
 
-### 3. Build Layer
+### Governance
 
-**Responsibility:** Translate canonical content into harness-specific output.  
-**Primary directory:** `build/adapters/`  
-**Does NOT:** store canonical content or execute at import time.
-
-A **harness adapter** is a document that describes the mapping rules from canonical schema fields to a specific tool's native format (e.g., Copilot, Claude, Antigravity CLI). A build step reads canonical content + adapter rules and writes the harness-specific output as an ephemeral artifact. See [ADR-002](decisions/ADR-002-build-system-model.md).
-
-No adapters are implemented yet. Adding one requires an ADR.
-
-### 4. Validation Layer
-
-**Responsibility:** Verify structural integrity of the repository.  
-**Primary directory:** `scripts/`  
-**Does NOT:** validate content meaning or enforce semantic correctness — only structure.
-
-The primary validation script is `scripts/validate.sh`. It checks that required foundation files exist and are non-empty.
-
----
+`docs/` and `.github/` define how the product evolves. Architectural choices use ADRs. Work is tracked through issues, pull requests, and the `WorkflowSmith-0.0.0` Project.
 
 ## Directory Contract
 
-Every top-level directory has a defined purpose and an invariant — something that must always be true about its contents.
+| Directory | Purpose |
+|---|---|
+| `workflow/source/` | Canonical workflow source, initially structural in 0.0.0 |
+| `workflow/schema/` | Canonical workflow unit shape and authoring expectations |
+| `compiler/contracts/` | Harness target and compilation contracts |
+| `dist/codex/` | First compiled harness target, not complete in 0.0.0 |
+| `docs/decisions/` | Accepted ADRs |
+| `docs/governance/` | GitHub and project operating model |
+| `.github/` | Issue and pull request templates |
+| `scripts/` | Structural validation |
 
-| Directory | Purpose | Invariant |
-|---|---|---|
-| `core/` | Baseline routing and output policy | All files are `promoted` canonical workflow units of `type: policy` |
-| `agents/` | Agent profile definitions | All files are `promoted` canonical workflow units of `type: agent` |
-| `skills/` | Task-specific skill instructions | All files are `promoted` canonical workflow units of `type: skill` |
-| `memory/` | Versioned memory indexes and references | All files are `promoted` canonical workflow units of `type: memory-index` |
-| `checklists/` | Reusable completion and review checklists | All files are `promoted` canonical workflow units of `type: checklist` |
-| `docs/` | Explanatory documentation and ADRs | Human-readable reference; not loaded as active policy |
-| `docs/decisions/` | Architecture Decision Records | One ADR per architectural decision; immutable once accepted |
-| `build/` | Build system structure and adapter interface | No canonical content; no harness-specific artifacts committed here |
-| `build/schema/` | Canonical schema templates and field specs | Schema definitions only; no workflow content |
-| `build/adapters/` | One subdirectory per harness adapter | No adapters until an ADR authorizes one |
-| `imports/` | Raw imported workflow material | Audit reference only; never active policy (see ADR-004) |
-| `imports/extracted/` | Candidate extractions from raw imports | Pre-draft staging material; not canonical until converted to frontmatter-bearing workflow units |
-| `scripts/` | Repository validation scripts | POSIX-compatible shell only; must exit 0 on a valid repo |
+## 0.0.0 Boundary
 
----
+The 0.0.0 milestone defines the foundation. It intentionally does not complete:
 
-## Canonical Workflow Unit
+- the full canonical workflow
+- compiler implementation
+- production Codex distribution
+- additional harness targets
 
-A **canonical workflow unit** is a Markdown file with a YAML frontmatter block at the top. The frontmatter defines metadata that adapters read; the Markdown body contains the actual instruction content.
-
-Example frontmatter:
-
-```yaml
----
-id: skill-spec-writing
-type: skill
-status: promoted
-version: 1.0.0
-schema_version: 1.0.0
-tags:
-  - planning
-  - adr
-see-also:
-  - skill-architecture-reading
----
-```
-
-Required fields: `id`, `type`, `status`, `version`, `schema_version`. Optional fields: `tags`, `replaces`, `see-also`.
-
-See [ADR-001](decisions/ADR-001-canonical-schema.md) for the full field specification and allowed values. See `build/schema/workflow-unit.template.md` for the copyable template.
-
----
-
-## Content Lifecycle
-
-Content moves through three states before becoming active policy.
-
-| State | Location | Meaning |
-|---|---|---|
-| `draft` | Feature branch or staging | Authored, not yet reviewed |
-| `reviewed` | Feature branch, all findings resolved | Review completed, no blocking issues |
-| `promoted` | `core/`, `agents/`, `skills/`, `memory/`, or `checklists/` | Active policy; traceable to an import or decision |
-
-Transition from one state to the next requires explicit action — updating the `status` field in frontmatter and recording the decision. Content in `imports/legacy/` is pre-draft: it does not have canonical frontmatter and cannot skip the lifecycle.
-
-See [ADR-003](decisions/ADR-003-content-lifecycle.md) for transition criteria.
-
----
-
-## Build Model
-
-The build model solves the multi-harness problem: one canonical workflow unit must work in several AI tools that read instructions in different formats.
-
-```
-WorkflowSmith canonical content   (this repository)
-          ↓
-  adapter for target harness   (build/adapters/<harness>/)
-          ↓
-  harness-specific artifact    (ephemeral, not committed here)
-```
-
-Adding a new harness means adding an adapter — not editing canonical content. Build artifacts are generated on demand and are not stored in this repository.
-
-See [ADR-002](decisions/ADR-002-build-system-model.md) for the full model and constraints.
-
----
-
-## Versioning
-
-WorkflowSmith has three versioning dimensions. See [ADR-005](decisions/ADR-005-versioning-strategy.md) for the full rules.
-
-| Dimension | What it versions | Tracked in |
-|---|---|---|
-| **Unit** | A single canonical workflow unit | `version` field in frontmatter |
-| **Schema** | The canonical schema definition (ADR-001) | `build/schema/VERSION` + `schema_version` field in each unit |
-| **Repository** | WorkflowSmith as a product | Git tags (`vX.Y.Z`) + `CHANGELOG.md` |
-
-**Schema compatibility:** An adapter declares its supported schema version. It must process any unit whose `schema_version` matches the same major version. A schema major bump requires an ADR and signals all adapters must update.
-
-**Release cadence:** Changes are logged under `## [Unreleased]` in `CHANGELOG.md`. At release, the section moves to a dated `## [vX.Y.Z]` entry and a git tag is created.
-
----
-
-## What Belongs Here
-
-- Shared routing rules (`core/`)
-- Output contracts (`core/`)
-- Agent profiles (`agents/`)
-- Skills (`skills/`)
-- Checklists (`checklists/`)
-- Memory indexes (`memory/`)
-- ADRs and explanatory documentation (`docs/`)
-- Schema templates and adapter interface (`build/`)
-- Repository validation scripts (`scripts/`)
-- Raw import snapshots, as audit reference (`imports/`)
-
-## What Does Not Belong Here
-
-- Large multi-agent systems that cannot be audited quickly
-- Tool-specific automation that only works in one harness (put it in the adapter, not in `core/`)
-- Generated or build artifact files
-- New workflow rules invented before existing imported sources are reviewed
-- Secrets, credentials, or tool API keys
-
-## Root Harness Files
-
-The repository root contains harness-specific bootstrap files such as `AGENTS.md`. These files are read directly by the current active harness before the canonical content layer is loaded. They are not canonical workflow units — they do not have schema frontmatter and are not subject to the content lifecycle.
-
-Root harness files are transitional artifacts. In a later phase, adapters will generate equivalent harness-specific files from canonical content, at which point these root files may be replaced or removed.
-
-*For the original formulation of these boundaries, see `docs/ai-core-source-of-truth.md`.*
+Those belong to later milestones.
