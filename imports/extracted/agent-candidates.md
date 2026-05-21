@@ -14,7 +14,7 @@ Candidate roles found in the legacy imports. These are not promoted active agent
 - Source paths: `imports/legacy/ai-core/workflows/copilot/agents/engine.agent.md`; `imports/legacy/ai-core/workflows/claude/agents/engine.md`; `imports/legacy/ai-core/workflows/antigravity-cli/agents/engine.md`
 - Why useful: Consolidates backend, data, infra, security, performance, testing, and review into one technical execution role.
 - Destination: agent
-- Promotion note: Defer. Useful if AxiomForge later needs a technical worker profile, but promoting it now would violate the minimal-agent constraint.
+- Promotion note: Defer. Useful if WorkflowSmith later needs a technical worker profile, but promoting it now would violate the minimal-agent constraint.
 
 ## Creative
 

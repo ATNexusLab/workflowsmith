@@ -1,6 +1,6 @@
 # Architecture Decision Records
 
-This directory contains Architecture Decision Records (ADRs) for AxiomForge.
+This directory contains Architecture Decision Records (ADRs) for WorkflowSmith.
 
 An ADR is a short document that captures an important architectural decision: the context that led to it, the decision itself, and its consequences. ADRs are immutable once accepted — superseded decisions get a new ADR that references the old one.
 

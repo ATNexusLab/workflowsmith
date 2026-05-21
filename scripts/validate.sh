@@ -62,4 +62,4 @@ if [ "$missing" -ne 0 ]; then
   exit 1
 fi
 
-printf 'AxiomForge Phase 1 structure and legacy import markers are present.\n'
+printf 'WorkflowSmith Phase 1 structure and legacy import markers are present.\n'

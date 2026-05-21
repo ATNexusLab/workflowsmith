@@ -7,7 +7,7 @@ Memory intelligence extracted from the legacy imports. Nothing here creates acti
 - Source paths: `imports/legacy/ai-core/workflows/claude/docs/memory/memory-system.md`; `imports/legacy/ai-core/workflows/claude/projects/-mnt-storage-dev-logbox/memory/MEMORY.md`; `imports/legacy/ai-core/workflows/claude/projects/-home-theo--copilot/memory/MEMORY.md`
 - Why useful: Keeps memory discoverable without loading every detail file into working context.
 - Destination: memory
-- Promotion note: Strong candidate for AxiomForge memory shape if memory becomes active later.
+- Promotion note: Strong candidate for WorkflowSmith memory shape if memory becomes active later.
 
 ## Why And How To Apply Structure
 
@@ -35,7 +35,7 @@ Memory intelligence extracted from the legacy imports. Nothing here creates acti
 - Source paths: `imports/legacy/ai-core/workflows/copilot/copilot-instructions.md`; `imports/legacy/ai-core/workflows/claude/docs/memory/obsidian-vault.md`; `imports/legacy/ai-core/workflows/claude/skills/obsidian-memory/SKILL.md`
 - Why useful: Allows work to continue when a personal memory backend is missing or unreachable.
 - Destination: memory
-- Promotion note: Required if AxiomForge ever integrates optional memory backends.
+- Promotion note: Required if WorkflowSmith ever integrates optional memory backends.
 
 ## Stale Memory Verification
 
@@ -47,7 +47,7 @@ Memory intelligence extracted from the legacy imports. Nothing here creates acti
 ## Project-Specific Runtime Notes
 
 - Source paths: `imports/legacy/ai-core/workflows/claude/projects/-mnt-storage-dev-logbox/memory/feedback-backend-test-isolation.md`; `imports/legacy/ai-core/workflows/claude/projects/-mnt-storage-dev-logbox/memory/feedback-lucide-bun-cjs.md`; `imports/legacy/ai-core/workflows/claude/projects/-mnt-storage-dev-Redmine-AI-Assistente/memory/feedback_commit_evidence.md`
-- Why useful: Good examples of precise memory, but they belong to specific external projects, not AxiomForge.
+- Why useful: Good examples of precise memory, but they belong to specific external projects, not WorkflowSmith.
 - Destination: discard
 - Promotion note: Use as examples of memory shape only; do not promote their domain rules.
 
@@ -56,5 +56,5 @@ Memory intelligence extracted from the legacy imports. Nothing here creates acti
 - Source paths: `imports/legacy/ai-core/workflows/claude/projects/-home-theo--copilot/memory/project_obsidian-rest-api.md`; `imports/legacy/ai-core/workflows/copilot/skills/obsidian-memory/SKILL.md`
 - Why useful: Documents an adapter strategy for one memory backend, including read/write split.
 - Destination: harness adapter
-- Promotion note: Keep as optional adapter evidence, not active AxiomForge memory policy.
+- Promotion note: Keep as optional adapter evidence, not active WorkflowSmith memory policy.
 

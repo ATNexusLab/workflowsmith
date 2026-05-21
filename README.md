@@ -1,6 +1,6 @@
-# AxiomForge
+# WorkflowSmith
 
-AxiomForge is a source-of-truth repository for AI workflow instructions.
+WorkflowSmith is a source-of-truth repository for AI workflow instructions.
 
 The repository is intentionally small. It exists to make AI operating rules, agents, skills, memory references, and checklists auditable and versioned before they are reused across tools.
 
@@ -17,7 +17,7 @@ See [`docs/specs/requirements.md`](docs/specs/requirements.md) for the draft v1 
 
 ## Architecture
 
-See [`docs/architecture.md`](docs/architecture.md) for the full description of AxiomForge's four-layer model (Schema, Content, Build, Validation), the directory contract, the content lifecycle, and the build system design.
+See [`docs/architecture.md`](docs/architecture.md) for the full description of WorkflowSmith's four-layer model (Schema, Content, Build, Validation), the directory contract, the content lifecycle, and the build system design.
 
 ## Repository Map
 

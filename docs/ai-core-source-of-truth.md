@@ -1,6 +1,6 @@
 # AI Core Source Of Truth
 
-This repository is the versioned source of truth for AI workflow instructions used by AxiomForge.
+This repository is the versioned source of truth for AI workflow instructions used by WorkflowSmith.
 
 It is not the final workflow design. It is the place where existing workflows are imported, compared, normalized, and promoted into a simple shared standard.
 

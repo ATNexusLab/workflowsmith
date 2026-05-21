@@ -4,7 +4,7 @@
 
 ## Context
 
-AxiomForge is a source-of-truth repository that must translate workflow units across multiple AI harnesses (Copilot, Claude, Antigravity CLI, and future tools). Each harness reads instructions in its own format and from its own file locations.
+WorkflowSmith is a source-of-truth repository that must translate workflow units across multiple AI harnesses (Copilot, Claude, Antigravity CLI, and future tools). Each harness reads instructions in its own format and from its own file locations.
 
 Without a shared schema, an adapter has no stable contract to read from. If each content file is free-form Markdown, an adapter must guess what fields are present, whether a unit is ready to use, and what kind of unit it is. This makes adapters fragile and content unauditable.
 

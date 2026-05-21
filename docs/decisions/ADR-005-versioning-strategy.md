@@ -4,13 +4,13 @@
 
 ## Context
 
-AxiomForge is a source-of-truth repository whose content is read by adapters and translated into harness-specific artifacts. For this to work reliably, three distinct versioning concerns must be addressed:
+WorkflowSmith is a source-of-truth repository whose content is read by adapters and translated into harness-specific artifacts. For this to work reliably, three distinct versioning concerns must be addressed:
 
 1. **Unit-level versioning** — each canonical workflow unit carries a version. Without clear rules for when that version changes, adapters cannot know whether a content update is safe to absorb or requires an adapter update.
 
 2. **Schema versioning** — the canonical schema (ADR-001) itself evolves. When a new required field is added or an existing field is renamed, every unit in the repository and every adapter that reads those units is affected. Adapters need a way to declare which schema version they support and refuse incompatible content gracefully.
 
-3. **Repository release versioning** — AxiomForge as a product needs a release model. Harness environments that pin to a version of AxiomForge need clear signals for when upgrading is safe and what changed.
+3. **Repository release versioning** — WorkflowSmith as a product needs a release model. Harness environments that pin to a version of WorkflowSmith need clear signals for when upgrading is safe and what changed.
 
 Without a formal versioning strategy, any change to a unit or the schema is silent to all downstream consumers.
 
@@ -61,7 +61,7 @@ The current schema version is tracked in `build/schema/VERSION`. The ADR for the
 
 ### 3. Repository Release Versioning
 
-AxiomForge uses git tags following semver (`v1.0.0`, `v1.1.0`, etc.) and maintains a `CHANGELOG.md` following the [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) format.
+WorkflowSmith uses git tags following semver (`v1.0.0`, `v1.1.0`, etc.) and maintains a `CHANGELOG.md` following the [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) format.
 
 **Release bump rules:**
 

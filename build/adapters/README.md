@@ -4,7 +4,7 @@ This directory contains harness adapters — one subdirectory per supported targ
 
 ## What an Adapter Is
 
-An adapter is a set of documents that describes how to translate canonical AxiomForge workflow units into the native format a specific AI tool expects. Adapters live here; canonical content lives in `core/`, `agents/`, `skills/`, `memory/`, and `checklists/`.
+An adapter is a set of documents that describes how to translate canonical WorkflowSmith workflow units into the native format a specific AI tool expects. Adapters live here; canonical content lives in `core/`, `agents/`, `skills/`, `memory/`, and `checklists/`.
 
 ## Current Status
 

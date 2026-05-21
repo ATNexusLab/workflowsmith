@@ -1,4 +1,4 @@
-# AxiomForge Roadmap
+# WorkflowSmith Roadmap
 
 This roadmap tracks the path from the v0.1.0 foundation to the v1.0.0 stable release.
 Sprint scope is derived from the acceptance criteria in [`docs/specs/requirements.md`](docs/specs/requirements.md).
@@ -28,7 +28,7 @@ All decisions from this phase remain authoritative until explicitly superseded.
 ## v1.0.0 — First Stable Release (target: 2026-07-01)
 
 v1.0.0 is feature-complete when all acceptance criteria in `docs/specs/requirements.md` are met:
-`axiomforge.yml` present, all four agents promoted, 13 skill domains covered, six harness
+`workflowsmith.yml` present, all four agents promoted, 13 skill domains covered, six harness
 distributions committed under `dist/`, all HIGH/MEDIUM security findings resolved, and public
 documentation complete.
 
@@ -41,10 +41,10 @@ and validation scope.
 | Deliverable | Description |
 |---|---|
 | `docs/decisions/ADR-006-distribution-model.md` | Supersedes ADR-002. `dist/` is committed, not ephemeral. Defines per-harness directory layout and official-source evidence format. |
-| `docs/decisions/ADR-007-manifest-spec.md` | `axiomforge.yml` contract: required fields, ordering semantics, schema validation decision. |
+| `docs/decisions/ADR-007-manifest-spec.md` | `workflowsmith.yml` contract: required fields, ordering semantics, schema validation decision. |
 | `docs/decisions/ADR-008-v1-content-types.md` | Amends ADR-001. Decides whether distribution support files (manifests, matrices, templates) are canonical workflow unit types or non-canonical. |
 | `docs/decisions/ADR-009-validation-responsibilities.md` | Extends the validation layer contract for v1: frontmatter checks, manifest presence, dist completeness, security scan scope. |
-| `axiomforge.yml` (stub) | Root manifest populated with v1 targets. Empty harness/dist sections filled by subsequent sprints. |
+| `workflowsmith.yml` (stub) | Root manifest populated with v1 targets. Empty harness/dist sections filled by subsequent sprints. |
 
 **Blocking dependency:** none — Sprint 1 is the foundation for all subsequent sprints.
 
@@ -62,7 +62,7 @@ in `imports/` provide reference material; nothing is promoted without explicit l
 | `agents/creative.md` (promoted) | Creative/Product agent. Responsibilities: UX, frontend experience, product framing, technical communication, user-facing writing. |
 | `agents/reviewer.md` (promoted) | Reviewer/Auditor agent. Read-only by default. Responsibilities: correctness, regressions, security review, maintainability, missing validation. |
 | Skills batch 1 (6 files, promoted) | `skills/spec/spec-writing.md`, `skills/architecture/architecture-reading.md`, `skills/implementation/refactoring.md`, `skills/testing/testing-patterns.md`, `skills/testing/testing-contract.md`, `skills/security/security-audit.md` |
-| `scripts/validate.sh` update | Extended to verify: all files in `agents/`, `skills/`, `core/` carry `status: promoted` frontmatter; `axiomforge.yml` exists and is non-empty. |
+| `scripts/validate.sh` update | Extended to verify: all files in `agents/`, `skills/`, `core/` carry `status: promoted` frontmatter; `workflowsmith.yml` exists and is non-empty. |
 
 **Blocking dependency:** Sprint 1 ADRs accepted.
 
@@ -70,7 +70,7 @@ in `imports/` provide reference material; nothing is promoted without explicit l
 
 ### Sprint 3 — Remaining Skills & Policies (2026-06-10 → 2026-06-16)
 
-Complete the 13-domain skill catalog, add the rigor-level policy, and finalize `axiomforge.yml`
+Complete the 13-domain skill catalog, add the rigor-level policy, and finalize `workflowsmith.yml`
 with all canonical content IDs. The `harness-translation` skill produced here is the working guide
 used to author distributions in Sprint 4.
 
@@ -80,7 +80,7 @@ used to author distributions in Sprint 4.
 | Skills batch 3 (2 files, promoted) | `skills/harness/harness-translation.md` (mapping canonical workflow to harness-native surfaces), `skills/memory/memory-governance.md` (knowledge and memory governance) |
 | `core/rigor-policy.md` (promoted) | Defines Fast, Standard, and Rigorous rigor levels, automatic routing triggers, planning requirements per level, and validation expectations. |
 | `checklists/release.md` (promoted) | Maintainer release checklist: CHANGELOG update, validate.sh pass, security findings resolved, tagging, publishing. |
-| `axiomforge.yml` (finalized) | All canonical content IDs added. Harness targets and dist directory targets declared. Validation requirements section populated per ADR-009. |
+| `workflowsmith.yml` (finalized) | All canonical content IDs added. Harness targets and dist directory targets declared. Validation requirements section populated per ADR-009. |
 
 **Blocking dependency:** Sprint 2 complete. `harness-translation` skill must be promoted before Sprint 4 distribution authoring begins.
 
@@ -160,7 +160,7 @@ scope creep and to preserve decision context for the next cycle.
 ## Dependency Chain
 
 ```
-Sprint 1 — Governance (ADRs 6–9 + axiomforge.yml stub)
+Sprint 1 — Governance (ADRs 6–9 + workflowsmith.yml stub)
     └── Sprint 2 — Agents & Core Skills
             └── Sprint 3 — Remaining Skills & Policies (harness-translation unblocks Sprint 4)
                     └── Sprint 4 — Security Hardening & Distributions 1–3
@@ -171,7 +171,7 @@ Sprint 1 — Governance (ADRs 6–9 + axiomforge.yml stub)
 
 ## Tracking
 
-GitHub issue: [#5 — Create v1 roadmap and sprint plan](https://github.com/ATNexusLab/axiomforge/issues/5)
+GitHub issue: [#5 — Create v1 roadmap and sprint plan](https://github.com/ATNexusLab/WorkflowSmith/issues/5)
 
 Sprint progress is tracked by opening a GitHub issue per sprint at the start of each week and
 closing it when all deliverables are promoted and `sh scripts/validate.sh` exits 0.

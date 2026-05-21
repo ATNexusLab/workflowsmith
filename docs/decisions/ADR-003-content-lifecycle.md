@@ -10,7 +10,7 @@ This ADR formalizes the three states and defines what must be true before conten
 
 ## Decision
 
-Content in AxiomForge has three lifecycle states. Each state has explicit entry criteria:
+Content in WorkflowSmith has three lifecycle states. Each state has explicit entry criteria:
 
 ### `draft`
 

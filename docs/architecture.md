@@ -1,6 +1,6 @@
-# AxiomForge Architecture
+# WorkflowSmith Architecture
 
-This document describes the canonical architecture of AxiomForge — what it is, how it is organized, and why. It is written for a contributor who has no prior context. Every term is defined the first time it appears.
+This document describes the canonical architecture of WorkflowSmith — what it is, how it is organized, and why. It is written for a contributor who has no prior context. Every term is defined the first time it appears.
 
 For the decisions that produced this architecture, see the [ADRs in `docs/decisions/`](decisions/README.md).
 
@@ -8,15 +8,15 @@ For the decisions that produced this architecture, see the [ADRs in `docs/decisi
 
 ## Overview
 
-AxiomForge is a **source-of-truth repository for AI excellence workflow instructions**. Its purpose is to keep the rules that govern AI agent behavior — routing policies, agent profiles, skills, checklists, and memory indexes — in a single versioned location, written in plain text, and auditable by any contributor.
+WorkflowSmith is a **source-of-truth repository for AI excellence workflow instructions**. Its purpose is to keep the rules that govern AI agent behavior — routing policies, agent profiles, skills, checklists, and memory indexes — in a single versioned location, written in plain text, and auditable by any contributor.
 
-The problem it solves: AI workflow instructions tend to exist in multiple places at once (inside tool-specific configuration files, inside personal dotfiles, inside project-local files) and diverge silently. AxiomForge is the one place where the canonical form of each instruction lives. A build step translates that canonical form into the format each tool expects.
+The problem it solves: AI workflow instructions tend to exist in multiple places at once (inside tool-specific configuration files, inside personal dotfiles, inside project-local files) and diverge silently. WorkflowSmith is the one place where the canonical form of each instruction lives. A build step translates that canonical form into the format each tool expects.
 
 ---
 
 ## The Four Layers
 
-AxiomForge is organized around four layers. Each layer has a single responsibility and a primary directory.
+WorkflowSmith is organized around four layers. Each layer has a single responsibility and a primary directory.
 
 ### 1. Schema Layer
 
@@ -124,7 +124,7 @@ See [ADR-003](decisions/ADR-003-content-lifecycle.md) for transition criteria.
 The build model solves the multi-harness problem: one canonical workflow unit must work in several AI tools that read instructions in different formats.
 
 ```
-AxiomForge canonical content   (this repository)
+WorkflowSmith canonical content   (this repository)
           ↓
   adapter for target harness   (build/adapters/<harness>/)
           ↓
@@ -139,13 +139,13 @@ See [ADR-002](decisions/ADR-002-build-system-model.md) for the full model and co
 
 ## Versioning
 
-AxiomForge has three versioning dimensions. See [ADR-005](decisions/ADR-005-versioning-strategy.md) for the full rules.
+WorkflowSmith has three versioning dimensions. See [ADR-005](decisions/ADR-005-versioning-strategy.md) for the full rules.
 
 | Dimension | What it versions | Tracked in |
 |---|---|---|
 | **Unit** | A single canonical workflow unit | `version` field in frontmatter |
 | **Schema** | The canonical schema definition (ADR-001) | `build/schema/VERSION` + `schema_version` field in each unit |
-| **Repository** | AxiomForge as a product | Git tags (`vX.Y.Z`) + `CHANGELOG.md` |
+| **Repository** | WorkflowSmith as a product | Git tags (`vX.Y.Z`) + `CHANGELOG.md` |
 
 **Schema compatibility:** An adapter declares its supported schema version. It must process any unit whose `schema_version` matches the same major version. A schema major bump requires an ADR and signals all adapters must update.
 

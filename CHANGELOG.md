@@ -1,6 +1,6 @@
 # Changelog
 
-All notable changes to AxiomForge are documented in this file.
+All notable changes to WorkflowSmith are documented in this file.
 
 Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 Versioning follows [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
@@ -46,4 +46,4 @@ Versioning follows [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - Resolved F-08 (LOW): unquoted variable in `scripts/validate.sh`
 - Resolved F-09 (LOW): missing working-directory guard in `scripts/validate.sh`
 
-[0.1.0]: https://github.com/ATNexusLab/axiomforge/releases/tag/v0.1.0
+[0.1.0]: https://github.com/ATNexusLab/WorkflowSmith/releases/tag/v0.1.0

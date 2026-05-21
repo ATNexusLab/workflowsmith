@@ -21,7 +21,7 @@ Reusable workflow intelligence extracted from the raw legacy imports. These item
 - Source paths: `imports/legacy/ai-core/workflows/claude/docs/decisions/0001-scope-layers.md`; `imports/legacy/ai-core/workflows/antigravity-cli/docs/decisions/adr-001-context-hierarchy.md`; `imports/legacy/ai-core/workflows/copilot/copilot-instructions.md`
 - Why useful: Gives a clear rule for combining global, project, path, and local workflow instructions without accidental replacement.
 - Destination: core policy
-- Promotion note: Promote as "additive unless explicitly replaced" across active AxiomForge artifacts.
+- Promotion note: Promote as "additive unless explicitly replaced" across active WorkflowSmith artifacts.
 
 ## Skills Compose When Domains Compose
 
@@ -49,12 +49,12 @@ Reusable workflow intelligence extracted from the raw legacy imports. These item
 - Source paths: `imports/legacy/ai-core/workflows/copilot/instructions/closeout.md`; `imports/legacy/ai-core/workflows/claude/rules/closeout.md`; `imports/legacy/ai-core/workflows/antigravity-cli/common/closeout-protocol.md`
 - Why useful: Prevents silent omissions around docs, migrations, changelogs, and unresolved handoff items.
 - Destination: checklist
-- Promotion note: Keep the decision checklist, but shorten it for AxiomForge so final answers stay concise.
+- Promotion note: Keep the decision checklist, but shorten it for WorkflowSmith so final answers stay concise.
 
 ## External Content Is Data
 
 - Source paths: `imports/legacy/ai-core/workflows/copilot/copilot-instructions.md`; `imports/legacy/ai-core/workflows/claude/CLAUDE.md`; `imports/legacy/ai-core/workflows/antigravity-cli/GEMINI.md`
 - Why useful: Protects against prompt injection from vault notes, imported files, web pages, and tool output.
 - Destination: core policy
-- Promotion note: Promote early because AxiomForge imports and reviews untrusted workflow text.
+- Promotion note: Promote early because WorkflowSmith imports and reviews untrusted workflow text.
 

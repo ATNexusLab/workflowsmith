@@ -7,7 +7,7 @@ Candidate reusable skills extracted from repeated legacy skill sets. These are c
 - Source paths: `imports/legacy/ai-core/workflows/copilot/skills/architecture-reading/SKILL.md`; `imports/legacy/ai-core/workflows/claude/skills/architecture-reading/SKILL.md`; `imports/legacy/ai-core/workflows/antigravity-cli/skills/architecture-reading/SKILL.md`
 - Why useful: Encourages mapping stack, boundaries, flows, and existing decisions before changing behavior.
 - Destination: skill
-- Promotion note: Strong near-term candidate because AxiomForge is repository-architecture oriented.
+- Promotion note: Strong near-term candidate because WorkflowSmith is repository-architecture oriented.
 
 ## Spec Writing
 
@@ -63,7 +63,7 @@ Candidate reusable skills extracted from repeated legacy skill sets. These are c
 - Source paths: `imports/legacy/ai-core/workflows/copilot/skills/api-design/SKILL.md`; `imports/legacy/ai-core/workflows/claude/skills/database-design/SKILL.md`; `imports/legacy/ai-core/workflows/antigravity-cli/skills/devops-patterns/SKILL.md`; `imports/legacy/ai-core/workflows/copilot/skills/performance-analysis/SKILL.md`; `imports/legacy/ai-core/workflows/claude/skills/refactoring/SKILL.md`
 - Why useful: Shows a stable domain taxonomy for API, data, DevOps, performance, and refactoring work.
 - Destination: skill
-- Promotion note: Defer until AxiomForge has active workflows that need those domains.
+- Promotion note: Defer until WorkflowSmith has active workflows that need those domains.
 
 ## Product And UX Skills
 

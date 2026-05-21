@@ -1,10 +1,10 @@
 # Build System
 
-This directory contains the AxiomForge build system structure: schema definitions and the harness adapter interface.
+This directory contains the WorkflowSmith build system structure: schema definitions and the harness adapter interface.
 
 ## What the Build System Does
 
-AxiomForge stores workflow instructions in a canonical format — one copy per workflow unit, harness-agnostic. The build system translates that canonical content into the format each target harness expects.
+WorkflowSmith stores workflow instructions in a canonical format — one copy per workflow unit, harness-agnostic. The build system translates that canonical content into the format each target harness expects.
 
 ```
 canonical content (this repository)

@@ -1,6 +1,6 @@
 # Schema
 
-This directory contains canonical schema definitions for AxiomForge workflow units.
+This directory contains canonical schema definitions for WorkflowSmith workflow units.
 
 ## What Is Here
 

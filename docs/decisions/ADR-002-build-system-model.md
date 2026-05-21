@@ -4,7 +4,7 @@
 
 ## Context
 
-AxiomForge content must work in at least three harnesses — Copilot, Claude, and Antigravity CLI — that have different instruction file formats, loading mechanisms, and directory expectations. For example:
+WorkflowSmith content must work in at least three harnesses — Copilot, Claude, and Antigravity CLI — that have different instruction file formats, loading mechanisms, and directory expectations. For example:
 
 - Copilot loads instructions from `.github/copilot-instructions.md` and skill files from specific locations.
 - Claude loads from `CLAUDE.md` and `~/.claude/` directories.
@@ -14,10 +14,10 @@ Maintaining three separately edited copies of the same workflow content produces
 
 ## Decision
 
-One canonical copy per workflow unit, stored in AxiomForge. Each target harness gets a **pattern adapter** — a document that describes the mapping rules from canonical schema fields to that harness's native format. A build step reads canonical content plus the relevant adapter rules and writes the harness-specific output.
+One canonical copy per workflow unit, stored in WorkflowSmith. Each target harness gets a **pattern adapter** — a document that describes the mapping rules from canonical schema fields to that harness's native format. A build step reads canonical content plus the relevant adapter rules and writes the harness-specific output.
 
 ```
-AxiomForge canonical content
+WorkflowSmith canonical content
         ↓
   [adapter: rules for target harness]
         ↓

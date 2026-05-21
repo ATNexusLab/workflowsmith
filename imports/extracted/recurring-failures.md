@@ -21,7 +21,7 @@ Legacy patterns that are useful mostly as warnings. These items should not be pr
 - Source paths: `imports/legacy/ai-core/workflows/copilot/instructions/routing.md`; `imports/legacy/ai-core/workflows/claude/docs/workflows/routing-protocol.md`; `imports/legacy/ai-core/workflows/antigravity-cli/common/routing.md`
 - Why useful: Reveals an attempt to separate orchestration from execution, but it creates unnecessary agent dependence.
 - Destination: discard
-- Promotion note: AxiomForge should prefer one principal workflow unless specialized execution is explicitly promoted.
+- Promotion note: WorkflowSmith should prefer one principal workflow unless specialized execution is explicitly promoted.
 
 ## Mandatory Vault Preference Reads
 
@@ -61,7 +61,7 @@ Legacy patterns that are useful mostly as warnings. These items should not be pr
 ## Agent Proliferation Pressure
 
 - Source paths: `imports/legacy/ai-core/workflows/copilot/agents/principal.agent.md`; `imports/legacy/ai-core/workflows/claude/agents/engine.md`; `imports/legacy/ai-core/workflows/antigravity-cli/agents/creative.md`
-- Why useful: The legacy system repeatedly converges on three agents, but AxiomForge currently needs minimal active surface.
+- Why useful: The legacy system repeatedly converges on three agents, but WorkflowSmith currently needs minimal active surface.
 - Destination: discard
-- Promotion note: Keep as candidate evidence; do not promote extra agents until repeated AxiomForge tasks demand them.
+- Promotion note: Keep as candidate evidence; do not promote extra agents until repeated WorkflowSmith tasks demand them.
 

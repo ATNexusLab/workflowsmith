@@ -2,7 +2,7 @@
 
 ## Project Structure & Module Organization
 
-AxiomForge is a plain-text source-of-truth repository for AI workflow instructions. Active, promoted guidance lives in the top-level domain directories:
+WorkflowSmith is a plain-text source-of-truth repository for AI workflow instructions. Active, promoted guidance lives in the top-level domain directories:
 
 - `core/`: baseline routing policy and output contracts.
 - `agents/`: agent definitions, currently including `agents/principal.md`.

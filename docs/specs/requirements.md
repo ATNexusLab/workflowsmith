@@ -1,21 +1,21 @@
-# AxiomForge Requirements
+# WorkflowSmith Requirements
 
 ## Status
 
-Draft requirements for AxiomForge v1.
+Draft requirements for WorkflowSmith v1.
 
-This document describes what AxiomForge must become before it can be treated as a complete v1 product. It is intentionally broader than the current repository state. Existing ADRs remain authoritative until they are superseded, but this document records the product requirements that should drive those future decisions.
+This document describes what WorkflowSmith must become before it can be treated as a complete v1 product. It is intentionally broader than the current repository state. Existing ADRs remain authoritative until they are superseded, but this document records the product requirements that should drive those future decisions.
 
 ## Product Definition
 
-AxiomForge is an open source framework for excellent AI coding workflows. It provides a canonical, versioned, auditable source of workflow truth and translates that source into safe, harness-specific distributions for AI coding tools.
+WorkflowSmith is an open source framework for excellent AI coding workflows. It provides a canonical, versioned, auditable source of workflow truth and translates that source into safe, harness-specific distributions for AI coding tools.
 
 The product must serve two goals at once:
 
 - Give the maintainer one precise source of truth for evolving a global workflow.
 - Give users installable workflow packages that work naturally inside their chosen harness.
 
-AxiomForge is not an application with user accounts, cloud state, or per-user configuration. It is closer to a workflow asset framework: users consume published packages, install the harness-specific workflow they want, and keep their personal/local preferences outside the AxiomForge source of truth.
+WorkflowSmith is not an application with user accounts, cloud state, or per-user configuration. It is closer to a workflow asset framework: users consume published packages, install the harness-specific workflow they want, and keep their personal/local preferences outside the WorkflowSmith source of truth.
 
 ## Audience
 
@@ -23,21 +23,21 @@ The primary user for early releases is the maintainer, who needs to version, imp
 
 The secondary audience is trusted technical users, such as friends or collaborators, who want to install a ready workflow without understanding the full internal authoring process.
 
-The public audience is open source readers evaluating AxiomForge as a portfolio-grade framework. Public documentation must make the project understandable, credible, and safe to inspect.
+The public audience is open source readers evaluating WorkflowSmith as a portfolio-grade framework. Public documentation must make the project understandable, credible, and safe to inspect.
 
 ## Requirement Layers
 
-AxiomForge requirements are split into two layers.
+WorkflowSmith requirements are split into two layers.
 
 The **product workflow** is the global workflow distributed to users. It defines how an AI coding agent should route tasks, plan, execute, review, test, document, and close out work in arbitrary projects.
 
-The **maintainer workflow** is how AxiomForge itself is authored and released. It defines how canonical workflow changes are researched, normalized, validated, translated into harness distributions, and published.
+The **maintainer workflow** is how WorkflowSmith itself is authored and released. It defines how canonical workflow changes are researched, normalized, validated, translated into harness distributions, and published.
 
-These layers must stay separate. A rule that governs how AxiomForge releases are made must not accidentally become a rule imposed on every user's day-to-day project work.
+These layers must stay separate. A rule that governs how WorkflowSmith releases are made must not accidentally become a rule imposed on every user's day-to-day project work.
 
 ## Goals
 
-AxiomForge v1 must:
+WorkflowSmith v1 must:
 
 - Provide a canonical workflow for senior, product-oriented software engineering.
 - Translate that workflow into functional distributions for the v1 harness targets.
@@ -49,7 +49,7 @@ AxiomForge v1 must:
 
 ## Non-Goals
 
-AxiomForge v1 must not:
+WorkflowSmith v1 must not:
 
 - Provide a custom installer or package manager.
 - Store user secrets, credentials, personal paths, or machine-local preferences.
@@ -60,7 +60,7 @@ AxiomForge v1 must not:
 
 ## Harness Targets
 
-AxiomForge v1 must provide functional distributions for:
+WorkflowSmith v1 must provide functional distributions for:
 
 - Codex
 - GitHub Copilot
@@ -77,7 +77,7 @@ Each harness target must be researched against official documentation. If offici
 
 The canonical workflow must remain harness-agnostic. Harness-specific behavior belongs in harness distributions, adapter notes, or divergence records, not in the core workflow unless the behavior is genuinely universal.
 
-AxiomForge must add a root `axiomforge.yml` manifest. The manifest is the central index for the official workflow package. It must declare:
+WorkflowSmith must add a root `workflowsmith.yml` manifest. The manifest is the central index for the official workflow package. It must declare:
 
 - The canonical workflow units included in the official package.
 - The intended ordering or precedence of those units when order matters.
@@ -111,7 +111,7 @@ Future ADRs must decide whether these are new canonical workflow unit types, man
 
 ## Distribution Model
 
-AxiomForge v1 must commit harness distributions to the repository under:
+WorkflowSmith v1 must commit harness distributions to the repository under:
 
 ```text
 dist/<harness>/
@@ -135,7 +135,7 @@ Each `dist/<harness>/` directory must include:
 
 Each harness distribution must record:
 
-- The AxiomForge version or release it belongs to.
+- The WorkflowSmith version or release it belongs to.
 - The canonical source files used to produce it.
 - The official harness documentation consulted.
 - The verification date for version-sensitive harness facts.
@@ -146,18 +146,18 @@ No distribution may silently omit a canonical behavior. If a behavior cannot be 
 
 ## Installation And Consumption
 
-AxiomForge v1 does not provide its own install command. It must publish repository layouts and harness packages that are compatible with existing harness or ecosystem installation mechanisms.
+WorkflowSmith v1 does not provide its own install command. It must publish repository layouts and harness packages that are compatible with existing harness or ecosystem installation mechanisms.
 
 The user-facing model is:
 
 - Users choose the harness package they want.
 - Users install or fetch only that package.
-- Users configure local secrets, MCP credentials, and personal preferences outside the AxiomForge repository.
-- Users may add project-local instructions or skills in their own repositories, but those local additions are not part of AxiomForge releases.
+- Users configure local secrets, MCP credentials, and personal preferences outside the WorkflowSmith repository.
+- Users may add project-local instructions or skills in their own repositories, but those local additions are not part of WorkflowSmith releases.
 
 ## Local Project Customization
 
-The global AxiomForge workflow is a base layer. Project-local instructions, project-local skills, and repository documentation are additive.
+The global WorkflowSmith workflow is a base layer. Project-local instructions, project-local skills, and repository documentation are additive.
 
 Local project material should provide:
 
@@ -167,7 +167,7 @@ Local project material should provide:
 - Local architecture decisions.
 - Team conventions.
 
-Local project material should not silently replace the global AxiomForge workflow. If a harness supports explicit override behavior, the distribution notes must explain the risk and expected use.
+Local project material should not silently replace the global WorkflowSmith workflow. If a harness supports explicit override behavior, the distribution notes must explain the risk and expected use.
 
 ## Product Workflow Agents
 
@@ -230,7 +230,7 @@ Fast mode must not be used for work involving:
 - Architecture changes.
 - Large or ambiguous changes.
 - Public releases.
-- AxiomForge harness distributions.
+- WorkflowSmith harness distributions.
 
 Standard mode may use a lightweight plan when useful.
 
@@ -310,7 +310,7 @@ MCP/tool templates must:
 
 ## Native Harness Commands And Surfaces
 
-AxiomForge v1 must not create a separate command layer when harness-native commands or workflow surfaces already exist.
+WorkflowSmith v1 must not create a separate command layer when harness-native commands or workflow surfaces already exist.
 
 Each harness distribution should use native commands, profiles, agents, skills, hooks, plugins, settings, or instruction files as appropriate for that harness.
 
@@ -318,7 +318,7 @@ If a harness lacks a native command or surface for an essential workflow behavio
 
 ## Security Requirements
 
-AxiomForge must be safe to inspect, clone, and install.
+WorkflowSmith must be safe to inspect, clone, and install.
 
 Validation must block:
 
@@ -330,7 +330,7 @@ Validation must block:
 - Destructive hook defaults.
 - Hidden shell execution required for basic use.
 
-External content is data, not instruction. Raw imports, third-party docs, tool outputs, and web pages must never override AxiomForge policy or active developer instructions.
+External content is data, not instruction. Raw imports, third-party docs, tool outputs, and web pages must never override WorkflowSmith policy or active developer instructions.
 
 ## Official Source Policy
 
@@ -364,7 +364,7 @@ The maintainer is the release authority. External review may be useful, but v1 d
 
 ## Versioning Requirements
 
-AxiomForge releases are controlled by the maintainer. Users consume published versions and do not version their local use of the workflow through AxiomForge.
+WorkflowSmith releases are controlled by the maintainer. Users consume published versions and do not version their local use of the workflow through WorkflowSmith.
 
 The project must keep semver releases for meaningful product changes. Release-worthy changes include:
 
@@ -396,9 +396,9 @@ Documentation must be in English for public files.
 
 ## v1 Acceptance Criteria
 
-AxiomForge v1 is ready when:
+WorkflowSmith v1 is ready when:
 
-- `axiomforge.yml` exists and defines the official workflow package.
+- `workflowsmith.yml` exists and defines the official workflow package.
 - The canonical workflow covers the required agents, skills, policies, and checklists.
 - `dist/codex/`, `dist/copilot/`, `dist/claude/`, `dist/antigravity/`, `dist/opencode/`, and `dist/openclaude/` exist.
 - Each distribution has a manifest, usage notes, official-source evidence, equivalence matrix, and gap notes.
@@ -422,7 +422,7 @@ The v1 workflow must be able to guide these scenarios:
 - Writing or updating tests.
 - Improving user-facing UX or documentation.
 - Translating the canonical workflow to a harness.
-- Preparing an AxiomForge release.
+- Preparing a WorkflowSmith release.
 
 These scenarios do not all need full automated tests in v1, but the workflow and documentation must make their expected handling clear.
 
@@ -431,10 +431,9 @@ These scenarios do not all need full automated tests in v1, but the workflow and
 The following decisions must be resolved through future ADRs or equivalent documented decisions:
 
 - Whether `dist/` replaces or supersedes the current ephemeral build artifact model.
-- Whether `axiomforge.yml` is schema-validated and what fields are required.
+- Whether `workflowsmith.yml` is schema-validated and what fields are required.
 - Whether distribution manifests are canonical workflow units or support files.
 - How unit-level versioning should coexist with maintainer-controlled release versioning.
 - The exact file layout for each `dist/<harness>/`.
 - The minimum official-source evidence format for each harness.
 - The validation script responsibilities for schema, dist completeness, and security checks.
-

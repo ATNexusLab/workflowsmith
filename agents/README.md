@@ -1,6 +1,6 @@
 # Agents
 
-This directory contains agent profile definitions — canonical descriptions of AI agent roles used in AxiomForge workflows.
+This directory contains agent profile definitions — canonical descriptions of AI agent roles used in WorkflowSmith workflows.
 
 ## What an Agent Definition Is
 
@@ -26,7 +26,7 @@ An agent definition must include these sections in its Markdown body:
 
 ## Current Agents
 
-- `principal.md` — the default agent for AxiomForge workflow work. Used when no more specific agent is selected.
+- `principal.md` — the default agent for WorkflowSmith workflow work. Used when no more specific agent is selected.
 
 ## Adding an Agent
 

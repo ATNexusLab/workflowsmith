@@ -21,7 +21,7 @@ Routing intelligence extracted from the legacy imports. These candidates should 
 - Source paths: `imports/legacy/ai-core/workflows/copilot/copilot-instructions.md`; `imports/legacy/ai-core/workflows/claude/docs/memory/obsidian-vault.md`; `imports/legacy/ai-core/workflows/antigravity-cli/common/routing.md`
 - Why useful: Defines when historical context is useful without making it automatic.
 - Destination: memory
-- Promotion note: Promote only after AxiomForge has a concrete memory backend or explicit memory import rules.
+- Promotion note: Promote only after WorkflowSmith has a concrete memory backend or explicit memory import rules.
 
 ## Additive Local Skills
 
@@ -56,7 +56,7 @@ Routing intelligence extracted from the legacy imports. These candidates should 
 - Source paths: `imports/legacy/ai-core/workflows/copilot/skills/copilot-instructions/SKILL.md`; `imports/legacy/ai-core/workflows/claude/skills/claude-instructions/SKILL.md`; `imports/legacy/ai-core/workflows/antigravity-cli/skills/gemini-instructions/SKILL.md`
 - Why useful: Shows how one source-of-truth workflow could be exported into different client instruction formats.
 - Destination: harness adapter
-- Promotion note: Defer until AxiomForge starts generating or syncing tool-specific outputs.
+- Promotion note: Defer until WorkflowSmith starts generating or syncing tool-specific outputs.
 
 ## Mandatory Planning Gate
 
