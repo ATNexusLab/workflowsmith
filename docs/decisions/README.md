@@ -11,3 +11,4 @@ ADRs are append-only once accepted. If a decision changes, add a new ADR that su
 | [0001](adr-0001-refoundation.md) | Refoundation Around Clean Product Architecture | Accepted |
 | [0002](adr-0002-source-compiler-distribution.md) | Canonical Source, Compiler Contracts, and Distributions | Accepted |
 | [0003](adr-0003-github-governance.md) | GitHub Governance for 0.0.0 | Accepted |
+| [0004](adr-0004-canonical-harness-resource-model.md) | Canonical Harness Resource Model | Accepted |
