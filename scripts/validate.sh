@@ -88,7 +88,11 @@ stale_promote_last='promote ''last'
 stale_ai_core='ai''-core'
 
 for pattern in "$stale_import_path" "$stale_import_first" "$stale_normalize_second" "$stale_promote_last" "$stale_ai_core"; do
-  if find . \( -path ./.git -o -path ./scripts/validate.sh \) -prune -o -type f -print | xargs grep -n -i -- "$pattern" >/tmp/workflowsmith-validate-grep.txt 2>/dev/null; then
+  : > /tmp/workflowsmith-validate-grep.txt
+  find . \( -path ./.git -o -path ./scripts/validate.sh \) -prune -o -type f \
+    -exec grep -n -i -- "$pattern" {} \; >>/tmp/workflowsmith-validate-grep.txt 2>/dev/null || true
+
+  if [ -s /tmp/workflowsmith-validate-grep.txt ]; then
     printf 'stale foundation concept found: %s\n' "$pattern" >&2
     cat /tmp/workflowsmith-validate-grep.txt >&2
     missing=1

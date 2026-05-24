@@ -6,6 +6,8 @@ Format follows Keep a Changelog. Versioning follows the repository roadmap in `d
 
 ## [Unreleased]
 
+## [0.0.0] - 2026-05-24
+
 ### Changed
 
 - Re-founded WorkflowSmith as a clean enterprise workflow product with Codex as the first compiled harness target.
