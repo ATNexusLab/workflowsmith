@@ -6,6 +6,7 @@ A harness target contract must define:
 - supported runtime surfaces
 - canonical inputs accepted, including the canonical harness resource model
 - mapping rules
+- mappings for canonical `instruction`, `agent`, and `skill` units
 - partial mappings against canonical resources
 - unsupported behavior against canonical resources
 - gated or credential-dependent resources

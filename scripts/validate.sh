@@ -23,8 +23,14 @@ docs/decisions/README.md
 docs/decisions/adr-0001-refoundation.md
 docs/decisions/adr-0002-source-compiler-distribution.md
 docs/decisions/adr-0003-github-governance.md
+docs/decisions/adr-0004-canonical-harness-resource-model.md
+docs/decisions/adr-0005-instructions-agents-skills.md
 workflow/README.md
 workflow/source/README.md
+workflow/source/harness-resources.md
+workflow/source/instruction-agent-skill-model.md
+workflow/source/automation-policy.md
+workflow/source/authoring-modularity.md
 workflow/schema/workflow-unit.md
 compiler/README.md
 compiler/contracts/harness-target.md
@@ -95,6 +101,24 @@ for pattern in "$stale_import_path" "$stale_import_first" "$stale_normalize_seco
   if [ -s /tmp/workflowsmith-validate-grep.txt ]; then
     printf 'stale foundation concept found: %s\n' "$pattern" >&2
     cat /tmp/workflowsmith-validate-grep.txt >&2
+    missing=1
+  fi
+done
+
+for file in workflow/source/*.md; do
+  [ -f "$file" ] || continue
+
+  kind=$(sed -n 's/^- kind: `\([^`]*\)`.*/\1/p' "$file" | sed -n '1p')
+  [ -n "$kind" ] || continue
+
+  limit=200
+  if [ "$kind" = "checklist" ]; then
+    limit=120
+  fi
+
+  line_count=$(wc -l <"$file" | tr -d ' ')
+  if [ "$line_count" -gt "$limit" ] && ! grep -q 'size-budget-exception:' "$file"; then
+    printf 'canonical source unit exceeds size budget: %s (%s lines, limit %s)\n' "$file" "$line_count" "$limit" >&2
     missing=1
   fi
 done

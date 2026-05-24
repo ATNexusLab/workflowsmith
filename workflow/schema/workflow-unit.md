@@ -12,6 +12,9 @@ Required metadata:
 
 Initial allowed `kind` values:
 
+- `instruction`
+- `agent`
+- `skill`
 - `policy`
 - `role`
 - `procedure`
