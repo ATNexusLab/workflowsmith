@@ -42,7 +42,8 @@ Distribution files are product artifacts. They should be derived from canonical 
 
 | Directory | Purpose |
 |---|---|
-| `workflow/source/` | Canonical workflow source, initially structural in 0.0.0 |
+| `workflow/source/` | Canonical workflow source (agents, skills, hooks, commands, rules) |
+| `workflow/spec/` | Canonical framework specifications (harness resource model, unit types, authoring rules) |
 | `workflow/schema/` | Canonical workflow unit shape and authoring expectations |
 | `compiler/contracts/` | Harness target and compilation contracts |
 | `dist/codex/` | First compiled harness target, not complete in 0.0.0 |

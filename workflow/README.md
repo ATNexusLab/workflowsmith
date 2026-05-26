@@ -7,4 +7,5 @@ The 0.0.0 milestone defines structure only. Complete workflow content is authore
 ## Directories
 
 - `source/` - canonical workflow units.
+- `spec/` - canonical framework specifications (harness resource model, unit types, authoring rules).
 - `schema/` - schema and authoring expectations.

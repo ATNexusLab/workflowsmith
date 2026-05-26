@@ -27,10 +27,11 @@ docs/decisions/adr-0004-canonical-harness-resource-model.md
 docs/decisions/adr-0005-instructions-agents-skills.md
 workflow/README.md
 workflow/source/README.md
-workflow/source/harness-resources.md
-workflow/source/instruction-agent-skill-model.md
-workflow/source/automation-policy.md
-workflow/source/authoring-modularity.md
+workflow/spec/README.md
+workflow/spec/harness-resources.md
+workflow/spec/instruction-agent-skill-model.md
+workflow/spec/automation-policy.md
+workflow/spec/authoring-modularity.md
 workflow/schema/workflow-unit.md
 compiler/README.md
 compiler/contracts/harness-target.md
@@ -55,6 +56,7 @@ while IFS= read -r dir; do
 done <<'REQUIRED_DIRS'
 workflow
 workflow/source
+workflow/spec
 workflow/schema
 compiler
 compiler/contracts

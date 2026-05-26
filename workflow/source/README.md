@@ -1,14 +1,21 @@
 # Canonical Source
 
-Canonical workflow content will live here.
+This directory contains the canonical WorkflowSmith workflow.
 
-Content in this directory must be harness-agnostic. Codex-specific behavior belongs in `compiler/` or `dist/codex/`.
+Content here must be harness-agnostic. Codex-specific behavior belongs in
+`compiler/` or `dist/codex/`.
 
-The complete workflow is intentionally deferred beyond 0.0.0.
+The complete workflow is intentionally deferred beyond 0.0.0. Framework
+specifications that define how the workflow is structured live in
+`workflow/spec/`.
 
-## Workflow Units
+## Structure
 
-- [Instruction, Agent, And Skill Model](instruction-agent-skill-model.md) - canonical boundaries for instructions, agents, and skills.
-- [Automation Policy](automation-policy.md) - scoped use of formatters, linters, autofix, and equivalent repair tools.
-- [Authoring Modularity](authoring-modularity.md) - size budgets and split rules for canonical workflow units.
-- [Canonical Harness Resource Model](harness-resources.md) - complete canonical resource contract for modern AI software engineering harnesses.
+As the workflow develops through milestone 0.1.0 and beyond, this directory
+will contain:
+
+- `agents/` — canonical agent definitions
+- `skills/` — canonical skill definitions
+- `hooks/` — canonical hook definitions
+- `commands/` — canonical command definitions
+- `rules/` — canonical rules

@@ -14,6 +14,6 @@ A harness target contract must define:
 - validation requirements
 - traceability requirements
 
-Harness target contracts must treat `workflow/source/harness-resources.md` as the source of truth for expected harness capabilities. A harness-specific limitation is a documented gap, not a change to the canonical workflow.
+Harness target contracts must treat `workflow/spec/harness-resources.md` as the source of truth for expected harness capabilities. A harness-specific limitation is a documented gap, not a change to the canonical workflow.
 
 Codex is the first target contract to be completed after the 0.0.0 foundation.
