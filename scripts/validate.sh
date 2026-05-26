@@ -25,6 +25,7 @@ docs/decisions/adr-0002-source-compiler-distribution.md
 docs/decisions/adr-0003-github-governance.md
 docs/decisions/adr-0004-canonical-harness-resource-model.md
 docs/decisions/adr-0005-instructions-agents-skills.md
+docs/decisions/adr-0006-workflow-spec-directory.md
 workflow/README.md
 workflow/source/README.md
 workflow/spec/README.md
