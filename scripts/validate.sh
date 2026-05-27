@@ -115,9 +115,6 @@ for file in workflow/source/*.md; do
   [ -n "$kind" ] || continue
 
   limit=200
-  if [ "$kind" = "checklist" ]; then
-    limit=120
-  fi
 
   line_count=$(wc -l <"$file" | tr -d ' ')
   if [ "$line_count" -gt "$limit" ] && ! grep -q 'size-budget-exception:' "$file"; then
