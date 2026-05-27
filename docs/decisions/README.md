@@ -15,3 +15,4 @@ ADRs are append-only once accepted. If a decision changes, add a new ADR that su
 | [0005](adr-0005-instructions-agents-skills.md) | Instructions, Agents, And Skills | Accepted |
 | [0006](adr-0006-workflow-spec-directory.md) | Workflow Spec Directory | Accepted |
 | [0007](adr-0007-workflow-unit-schema-finalization.md) | Workflow Unit Schema Finalization | Accepted |
+| [0008](adr-0008-instruction-scope-model.md) | Instruction Scope Model | Accepted |
